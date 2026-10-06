@@ -10,12 +10,47 @@
   <title>Finance Manager Calculator</title>
 </head>
 <body>
+  <section class="auth-gate" id="authGate" aria-labelledby="authTitle">
+    <div class="auth-brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 18V6m0 12h18M6 15l5-6 4 3 6-8" stroke="#58dbc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Finance Manager Calculator</span>
+    </div>
+    <div class="auth-card">
+      <div class="auth-heading">
+        <p class="auth-kicker">SECURE WORKSPACE</p>
+        <h1 id="authTitle">เข้าสู่ระบบ</h1>
+        <p id="authDescription">เข้าสู่พื้นที่วิเคราะห์ทางการเงินของคุณ</p>
+      </div>
+      <div class="auth-tabs" role="tablist" aria-label="เลือกรูปแบบบัญชี">
+        <button class="auth-tab active" id="loginTab" type="button" role="tab" aria-selected="true">เข้าสู่ระบบ</button>
+        <button class="auth-tab" id="registerTab" type="button" role="tab" aria-selected="false">สร้างบัญชี</button>
+      </div>
+      <form id="authForm" novalidate>
+        <div class="auth-message" id="authMessage" role="alert" aria-live="polite"></div>
+        <div class="auth-field">
+          <label for="authEmail">อีเมล</label>
+          <input id="authEmail" name="email" type="email" inputmode="email" autocomplete="email" placeholder="name@company.com" required />
+        </div>
+        <div class="auth-field">
+          <div class="auth-label-row"><label for="authPassword">รหัสผ่าน</label><button id="forgotPassword" class="text-button" type="button">ลืมรหัสผ่าน?</button></div>
+          <input id="authPassword" name="password" type="password" autocomplete="current-password" minlength="6" placeholder="อย่างน้อย 6 ตัวอักษร" required />
+        </div>
+        <button class="auth-submit" id="authSubmit" type="submit">เข้าสู่ระบบ</button>
+      </form>
+      <p class="auth-note">บัญชีของคุณได้รับการยืนยันและดูแลผ่าน Firebase Authentication</p>
+    </div>
+  </section>
+
+  <div class="app-shell is-hidden" id="appShell" aria-hidden="true">
   <header class="topbar">
     <div class="brand">
       <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 18V6m0 12h18M6 15l5-6 4 3 6-8" stroke="#58dbc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <span>Finance Manager Calculator</span>
     </div>
-    <div class="top-meta">เครื่องมือวิเคราะห์ทางการเงิน</div>
+    <div class="account-menu">
+      <span class="account-email" id="accountEmail"></span>
+      <button class="signout-button" id="signOutButton" type="button">ออกจากระบบ</button>
+    </div>
   </header>
 
   <div class="layout">
@@ -63,6 +98,7 @@
       <p class="footnote">หมายเหตุ: เครื่องมือนี้ใช้เพื่อการวิเคราะห์เบื้องต้น ไม่ถือเป็นคำแนะนำด้านการลงทุนหรือสินเชื่อ</p>
     </main>
   </div>
-  <script src="app.js"></script>
+  </div>
+  <script type="module" src="auth.js"></script>
 </body>
 </html>
