@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="เครื่องคิดเลขทางการเงินสำหรับ Finance Manager: NPV, IRR, Break-even Point, Loan Calculation และ Financial Ratio" />
+  <meta name="theme-color" content="#0a2540" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a2540'/%3E%3Cpath d='M17 43V21h30M22 38l8-9 7 5 10-13' fill='none' stroke='%233dd6b5' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Finance Manager Calculator</title>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M3 18V6m0 12h18M6 15l5-6 4 3 6-8" stroke="#58dbc0" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span>Finance Manager Calculator</span>
+    </div>
+    <div class="top-meta">เครื่องมือวิเคราะห์ทางการเงิน</div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar" aria-label="ประเภทการคำนวณ">
+      <p class="eyebrow">Calculators</p>
+      <nav class="calc-nav">
+        <button class="nav-item active" data-calc="npv"><span class="nav-icon">NPV</span><span>Net Present Value</span></button>
+        <button class="nav-item" data-calc="irr"><span class="nav-icon">IRR</span><span>Internal Rate of Return</span></button>
+        <button class="nav-item" data-calc="breakeven"><span class="nav-icon">BE</span><span>Break-even Point</span></button>
+        <button class="nav-item" data-calc="loan"><span class="nav-icon">PMT</span><span>Loan Calculation</span></button>
+        <button class="nav-item" data-calc="ratio"><span class="nav-icon">%</span><span>Financial Ratio</span></button>
+      </nav>
+      <div class="sidebar-note">ผลลัพธ์เป็นข้อมูลประกอบการวิเคราะห์ ควรตรวจสอบสมมติฐานก่อนนำไปใช้ตัดสินใจ</div>
+    </aside>
+
+    <main>
+      <div class="page-head">
+        <div><h1 id="pageTitle">Net Present Value (NPV)</h1><p id="pageSubtitle">ประเมินมูลค่าปัจจุบันของกระแสเงินสดในอนาคตหลังหักเงินลงทุนเริ่มต้น</p></div>
+        <span class="currency-badge">THB · บาทไทย</span>
+      </div>
+
+      <div class="workspace">
+        <section class="panel" aria-labelledby="inputHeading">
+          <div class="panel-header"><h2 id="inputHeading">ข้อมูลสำหรับคำนวณ</h2><p>กรอกสมมติฐานทางการเงินที่ต้องการวิเคราะห์</p></div>
+          <form class="panel-body" id="calculatorForm" novalidate>
+            <div id="errorBox" class="error-box" role="alert"></div>
+            <div class="fields" id="fields"></div>
+            <div class="actions"><button class="primary" type="submit">คำนวณผลลัพธ์</button><button class="secondary" type="button" id="resetButton">คืนค่าเริ่มต้น</button></div>
+          </form>
+        </section>
+
+        <aside class="panel result-panel" aria-live="polite">
+          <div class="result-hero">
+            <div class="result-label" id="resultLabel">มูลค่าปัจจุบันสุทธิ</div>
+            <div class="result-value" id="resultValue">฿221,564.52</div>
+            <div class="result-secondary" id="resultSecondary">จากเงินลงทุนเริ่มต้น ฿1,000,000</div>
+            <div class="status-chip" id="statusChip">โครงการสร้างมูลค่าเพิ่ม</div>
+          </div>
+          <div class="explain">
+            <div class="explain-block"><h3>สูตรที่ใช้</h3><div class="formula" id="formulaText">NPV = Σ [CFₜ ÷ (1 + r)ᵗ] − Initial Investment</div></div>
+            <div class="explain-block"><h3>ความหมายของผลลัพธ์</h3><p class="interpretation" id="interpretation">NPV เป็นบวก แสดงว่าผลตอบแทนที่คาดว่าจะได้รับสูงกว่าต้นทุนเงินทุนตามอัตราคิดลดที่กำหนด</p></div>
+          </div>
+        </aside>
+      </div>
+      <p class="footnote">หมายเหตุ: เครื่องมือนี้ใช้เพื่อการวิเคราะห์เบื้องต้น ไม่ถือเป็นคำแนะนำด้านการลงทุนหรือสินเชื่อ</p>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

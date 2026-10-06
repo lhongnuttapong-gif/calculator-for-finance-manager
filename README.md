@@ -1,6 +1,6 @@
-# calculator-for-finance-manager
+# Finance Manager Calculator
 
-Test for study
+เว็บแอปเครื่องคิดเลขทางการเงินภาษาไทยสำหรับ Finance Manager รองรับ NPV, IRR, Break-even Point, Loan Calculation และ Financial Ratio
 
-I want to drink coffee
+เปิด `dist/index.html` เพื่อใช้งานในเบราว์เซอร์
 
